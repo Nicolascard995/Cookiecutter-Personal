@@ -1,0 +1,19 @@
+name: {{ cookiecutter.project_slug }}
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+{% if cookiecutter.project_packages == "All" %}
+  - fs
+  - jupyter
+  - jupyterlab
+  - pathlib
+  - pyprojroot
+  - python={{ cookiecutter.python_version }}
+  - pip:
+    - pyhere
+{% else %}
+  - python={{ cookiecutter.python_version }}
+  - pip
+{% endif %}
